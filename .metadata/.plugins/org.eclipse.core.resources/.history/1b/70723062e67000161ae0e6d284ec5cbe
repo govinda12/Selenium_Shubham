@@ -1,0 +1,17 @@
+package com.tests;
+
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.pages.HomePage;
+
+public class ExecuteTest extends BaseTest{
+	
+	@Test
+	public void test1(){
+		SoftAssert s_assert = new SoftAssert();
+//		HomePage hp = new HomePage(driver);
+		
+	}
+
+}

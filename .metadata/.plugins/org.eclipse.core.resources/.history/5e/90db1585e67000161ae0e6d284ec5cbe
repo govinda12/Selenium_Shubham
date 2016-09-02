@@ -1,0 +1,58 @@
+package com.tests;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.pages.HomePage;
+
+public class ExecuteTest extends BaseTest{
+	
+	
+	@Test
+	public void testScenario1() throws InterruptedException{
+		SoftAssert s_assert = new SoftAssert();
+		HomePage hp = new HomePage(driver);
+		driver.get("https://www.rodanandfields.com/ca/");
+		Actions actions = new Actions(driver);
+		WebElement shopSkinCare = driver.findElement(By.xpath("//span[@class='icon-search']/preceding::a[@id='our-products']"));
+		actions.moveToElement(shopSkinCare).build().perform();
+//		driver.findElement(By.xpath("//span[@class='icon-search']/preceding::a[@id='our-products']")).click();
+		driver.findElement(By.xpath("//div[@id='header-middle-top']//following::a[@title='All Products'][1]")).click();
+		Thread.sleep(4000);
+		String getQuickShopUrl = driver.getCurrentUrl();
+		System.out.println(getQuickShopUrl + "<<<==== quick shop url");
+		driver.findElement(By.xpath("//input[@value='- Product(s) -']")).click();
+		driver.findElement(By.xpath("//div[@id='quick-refine']/div[2]/div[1]/ul/li[1]/form/div/div[1]/div[2]/div")).click();
+		driver.findElement(By.xpath("//input[@value='- Product(s) -']")).click();
+		driver.findElement(By.xpath("//div[@id='quick-refine']/div[2]/div[1]/ul/li[2]/form/div/div[1]/div[2]/div")).click();
+		driver.findElement(By.xpath("//input[@value='- Price -']")).click();
+		driver.findElement(By.xpath("//div[@id='quick-refine']/div[2]/div[2]/ul/li[2]/form/div/div[1]/div[2]/div")).click();
+//		driver.findElement(By.xpath("//div[@id='quick-filtered']//li/form/div")).isSelected();
+		//div[@id='quick-filtered']//li/form/div/input
+		String verifyCheckboxChecked = driver.findElement(By.xpath("//div[@id='quick-filtered']//li/form/div")).getAttribute("class");
+		Assert.assertTrue(verifyCheckboxChecked.contains("checked"), " Check box not Selected");
+		Assert.assertTrue(isElementPresent(By.xpath("//div[@id='quick-filtered']//li/form/label[text()='REDEFINE']")), " REDEFINE ELEMENT NOT PRESENT");
+		Assert.assertTrue(isElementPresent(By.xpath("//div[@id='quick-filtered']//li/form/label[text()='REVERSE']")), " REVERSE ELEMENT NOT PRESENT");
+		Assert.assertTrue(isElementPresent(By.xpath("//div[@id='quick-filtered']//li/form/label[text()='CAD$50 TO CAD$199.99']")), " CAD$50 TO CAD$199.99 ELEMENT NOT PRESENT");
+		Thread.sleep(2000);
+		String getPrice = driver.findElement(By.xpath("//a[text()='REDEFINE Multi-Function Eye Cream']/../following-sibling::p/span")).getText();
+//		Assert.assertTrue(getPrice, message);
+		System.out.println("getprice ====>> "+ getPrice);
+		
+	}
+	
+	public boolean isElementPresent(By by) {
+		List<WebElement> le =  driver.findElements(by);
+	     if(le.size()==0){
+	    	 return false;
+	     }
+	    	return true;
+	}
+
+}

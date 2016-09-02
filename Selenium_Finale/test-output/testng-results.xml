@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="40855" started-at="2016-09-02T08:58:20Z" finished-at="2016-09-02T08:59:01Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="40855" started-at="2016-09-02T08:58:20Z" finished-at="2016-09-02T08:59:01Z">
+      <class name="com.tests.RFTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.RFTests@4501b7af]" name="setUp" is-config="true" duration-ms="18385" started-at="2016-09-02T14:28:20Z" finished-at="2016-09-02T14:28:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testScenario1()[pri:0, instance:com.tests.RFTests@4501b7af]" name="testScenario1" duration-ms="22458" started-at="2016-09-02T14:28:39Z" finished-at="2016-09-02T14:29:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testScenario1 -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.tests.RFTests@4501b7af]" name="quit" is-config="true" duration-ms="858" started-at="2016-09-02T14:29:01Z" finished-at="2016-09-02T14:29:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.tests.RFTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
